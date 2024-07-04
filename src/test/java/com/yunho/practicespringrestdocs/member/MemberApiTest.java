@@ -48,12 +48,12 @@ class MemberApiTest extends TestSupport {
                 .andDo(
                         restDocs.document(
                                 pathParameters(
-                                        parameterWithName("id").description("Member id")
+                                        parameterWithName("id").description("Member Id")
                                 ),
                                 responseFields(
-                                        fieldWithPath("id").description("Member id"),
-                                        fieldWithPath("email").description("Email"),
-                                        fieldWithPath("name").description("Name")
+                                        fieldWithPath("id").description("Id"),
+                                        fieldWithPath("name").description("name"),
+                                        fieldWithPath("email").description("email")
                                 )
                         )
                 )
@@ -70,9 +70,9 @@ class MemberApiTest extends TestSupport {
                 .andExpect(status().isOk())
                 .andDo(
                         restDocs.document(
-                                requestParameters(
-                                        parameterWithName("size").optional().description("size"),
-                                        parameterWithName("page").optional().description("page")
+                                requestFields(
+                                        fieldWithPath("name").description("name"),
+                                        fieldWithPath("email").description("email")
                                 )
                         )
                 )
